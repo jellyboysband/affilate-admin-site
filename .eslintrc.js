@@ -3,17 +3,14 @@ module.exports = {
   env: {
     node: true,
   },
-  'extends': [
-    'plugin:vue/essential',
-    '@vue/standard',
-  ],
+  extends: ['plugin:vue/essential', '@vue/standard', 'prettier'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'comma-dangle': ['error', 'always-multiline'],
-    'curly': 'error',
+    curly: 'error',
   },
   parserOptions: {
     parser: 'babel-eslint',
   },
-}
+};
