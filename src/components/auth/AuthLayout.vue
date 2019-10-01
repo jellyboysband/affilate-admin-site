@@ -1,14 +1,11 @@
 <template>
-  <div class="auth-layout row align-content--center">
-    <div class="flex xs12 pa-3 flex-center">
-      <router-link class="py-5 flex-center" to="/">
-        <va-icon-vuestic />
-      </router-link>
-    </div>
-
+  <div
+    class="auth-layout row align-content--center"
+    :style="{background:$themes.dark, opacity:0.9}"
+  >
     <div class="flex xs12 pa-3">
       <div class="d-flex justify--center">
-        <va-card class="auth-layout__card">
+        <va-card class="auth-layout__card dark">
           <va-tabs v-model="tabIndex" center>
             <va-tab>{{ $t('auth.login') }}</va-tab>
           </va-tabs>
@@ -25,30 +22,30 @@
 </template>
 
 <script>
-import VaIconVuestic from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconVuestic'
+import VaIconVuestic from 'vuestic-ui/src/components/vuestic-components/va-icon/va-iconset/VaIconVuestic';
 
-const tabs = ['login', 'signup']
+const tabs = ['login', 'signup'];
 
 export default {
   name: 'AuthLayout',
   components: { VaIconVuestic },
-  data () {
+  data() {
     return {
       selectedTabIndex: 0,
       tabTitles: ['login', 'createNewAccount'],
-    }
+    };
   },
   computed: {
     tabIndex: {
-      set (tabIndex) {
-        this.$router.push({ name: tabs[tabIndex] })
+      set(tabIndex) {
+        this.$router.push({ name: tabs[tabIndex] });
       },
-      get () {
-        return tabs.indexOf(this.$route.name)
+      get() {
+        return tabs.indexOf(this.$route.name);
       },
     },
   },
-}
+};
 </script>
 
 <style lang="scss">

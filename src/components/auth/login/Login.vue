@@ -5,7 +5,8 @@
       type="password"
       :label="$t('auth.password')"
       :error="!!passwordErrors.length"
-      :error-messages="passwordErrors"
+      :error-messages="passwordErrors.join('; ')"
+      :style="{color:!!passwordErrors.length?$themes.light:$themes.dark}"
     />
 
     <div class="d-flex justify--center mt-3">
@@ -17,27 +18,38 @@
 <script>
 export default {
   name: 'login',
-  data () {
+  data() {
     return {
       password: '',
       passwordErrors: [],
-    }
+    };
   },
   computed: {
-    formReady () {
-      return this.passwordErrors.length
+    formReady() {
+      if (!this.password) {
+        this.$set(this.passwordErrors, this.passwordErrors.length, 'Password is required');
+      }
+      return !this.passwordErrors.length;
     },
   },
   methods: {
-    onsubmit () {
-      this.passwordErrors = this.password ? [] : ['Password is required']
+    onsubmit() {
+      this.passwordErrors = [];
       if (!this.formReady) {
-        return
+        return;
       }
-      this.$router.push({ name: 'dashboard' })
+      this.$store
+        .dispatch('login', { password: this.password })
+        .then(response => {
+          this.$router.push({ name: 'dashboard' });
+        })
+        .catch(err => {
+          this.$set(this.passwordErrors, this.passwordErrors.length, err.message);
+          console.error(err);
+        });
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
