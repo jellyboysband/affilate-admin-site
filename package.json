@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@types/jest": "^24.0.11",
+    "@vitalets/google-translate-api": "^3.0.0",
     "amcharts3": "^3.21.14",
     "ammap3": "^3.21.14",
     "approximate-number": "^2.0.0",
@@ -20,6 +21,7 @@
     "babel-polyfill": "^6.26.0",
     "chart.js": "^2.6.0",
     "detect-browser": "^4.6.0",
+    "dottie": "^2.0.1",
     "element-resize-detector": "^1.1.12",
     "epic-spinners": "^1.1.0",
     "es6-promise": "^4.2.5",

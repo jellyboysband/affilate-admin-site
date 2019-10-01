@@ -1,73 +1,74 @@
 <template>
   <div class="pt-2">
     <div class="row row-equal">
-      <div class="flex xs12 md6">
+      <div class="flex xs12">
         <div
-          class="title text-dark mb-3"
-          :style="{color: $themes.primary}"
-        >{{$t('dashboard.tabs.billingAddress.personalInfo')}}</div>
+          class="title text-dark mb-3 medium-title"
+          :style="{color: $themes.primary,}"
+        >{{$t('dashboard.data.primary')}}</div>
         <va-input
           type="textarea"
           autosize
-          :label="$t('dashboard.tabs.billingAddress.firstName')"
-          v-model="form.name"
+          minRows="6"
+          :label="$t('dashboard.data.title')"
+          v-model.trim="form.title"
         />
-        <va-input :label="$t('dashboard.tabs.billingAddress.email')" v-model="form.email" />
-        <va-input :label="$t('dashboard.tabs.billingAddress.address')" v-model="form.address" />
+
+        <div class="flex xs12 row row-equal justify-content-center">
+          <va-card
+            v-for="(image,i) of images"
+            :key="i"
+            class="flex xs3 w-100 mx-auto"
+            style="height:20rem;"
+            :image="image"
+            square
+            titleOnImage
+          >
+            <template slot="header">
+              <va-button
+                :color="form.images.includes(image)?'success':'danger'"
+                @click="form.images.includes(image)?form.images.splice(form.images.findIndex(it=>it===image),1):form.images.push(image)"
+                class="ma-0 mb-3"
+              >{{ form.images.includes(image)?'✔':'✗' }}</va-button>
+            </template>
+          </va-card>
+        </div>
+
+        <VbCard class="flex row">
+          <a
+            :href="form.url"
+            class="link large-title flex xs-6"
+            :style="`color:${$themes.primary}`"
+          >{{$t('dashboard.data.url')}}</a>
+
+          <p class="flex xs-6"></p>
+        </VbCard>
       </div>
-      <div class="flex xs12 md6">
-        <div
-          class="title text-dark mb-3"
-          :style="{color: $themes.primary}"
-        >{{$t('dashboard.tabs.billingAddress.companyInfo')}}</div>
-        <va-input :label="$t('dashboard.tabs.billingAddress.city')" v-model="form.city" />
-        <va-input :label="$t('dashboard.tabs.billingAddress.country')" v-model="form.country" />
-        <va-checkbox
-          :label="$t('dashboard.tabs.billingAddress.infiniteConnections')"
-          v-model="form.connection"
-        />
-      </div>
-    </div>
-    <div class="flex xs12 row row-equal">
-      <va-card
-        v-for="i of 10"
-        :key="i"
-        class="flex xs3 w-100"
-        style="height:15em;"
-        image="https://i.imgur.com/qSykGko.jpg"
-        square
-        titleOnImage
-      >
-        <template slot="header">
-          <va-button
-            :color="images.includes(i)?'success':'danger'"
-            @click="images.includes(i)?images.splice(images.findIndex(it=>it===i),1):images.push(i)"
-            class="ma-0 mb-3"
-          >{{ images.includes(i)?'✔':'✗' }}</va-button>
-        </template>
-      </va-card>
     </div>
     <div class="row justify--center">
-      <va-button>Add Connection</va-button>
+      <va-button class="flex xs3 py-3 mx-4" color="danger">{{$t('dashboard.data.skip')}}</va-button>
+      <va-button class="flex xs3 py-3 mx-4" color="success">{{$t('dashboard.data.add')}}</va-button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'billing-address-tab',
-  data () {
+  name: "billing-address-tab",
+  data() {
     return {
       form: {
-        name: 'John Smith',
-        email: 'smith@gmail.com',
-        address: '93  Guild Street',
-        city: 'London',
-        country: 'United Kingdom',
-        connection: true,
+        images: [],
+        url: "https://ru.aliexpress.com/item/33035919784.html",
+        title:
+          "Детская футболка с рисунком медведя, мамы, папы, медведя, сестры, брата, медведя; женская футболка с короткими рукавами и принтом; хлопковая Футболка с графическим принтом; футболки"
       },
-      images: [],
-    }
-  },
-}
-</script>
+      images: [
+        "https://ae01.alicdn.com/kf/HTB1o2AHbEKF3KVjSZFEq6xExFXa3/-.jpg",
+        "https://ae01.alicdn.com/kf/HTB1KJoJbBGE3KVjSZFhq6AkaFXaa/-.jpg",
+        "https://ae01.alicdn.com/kf/HTB1I3NiRwHqK1RjSZFPq6AwapXaC/-.jpg"
+      ]
+    };
+  }
+};
+</script> 

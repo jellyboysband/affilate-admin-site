@@ -1,7 +1,7 @@
 <template>
-  <va-card :title="$t('dashboard.setupRemoteConnections')">
+  <va-card>
     <va-tabs grow v-model="tabsState">
-      <va-tab>{{$t('dashboard.tabs.productCardTab.title')}}</va-tab>
+      <va-tab class="large-title">{{$t('dashboard.dataCardTitle')}}</va-tab>
     </va-tabs>
     <va-separator />
     <component :is="tabs[tabsState]" />
@@ -9,18 +9,18 @@
 </template>
 
 <script>
-import ProductCardTab from './dashboard-tabs/ProductCardTab'
+import ProductCardTab from "./dashboard-tabs/ProductCardTab";
 
 export default {
-  name: 'DashboardTab',
+  name: "DashboardTab",
   components: {
-    ProductCardTab,
+    ProductCardTab
   },
-  data () {
+  data() {
     return {
       tabsState: 0,
-      tabs: ['ProductCardTab'],
-    }
-  },
-}
+      tabs: ["ProductCardTab"]
+    };
+  }
+};
 </script>

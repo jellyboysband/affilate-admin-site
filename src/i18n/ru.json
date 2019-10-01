@@ -1,0 +1,346 @@
+{
+  "404": {
+    "title": "Эта страница пошла ловить рыбу. ###, Если Вы чувствуете, что это не правильно, пожалуйста, пошлите нам сообщение в",
+    "text": "Назад к приборной панели ###, я соглашаюсь на ###, Создают счет ###, Создают Новый Счет",
+    "back_button": "электронная почта"
+  },
+  "auth": {
+    "agree": "Логин ###, Пароль",
+    "createAccount": "Восстанавливается, пароль",
+    "createNewAccount": "Подписываются ###, Держат меня, загрузился",
+    "email": "Условия использования.",
+    "login": "Измененный пароль",
+    "password": "Единственный Символ",
+    "recover_password": "Два Символа",
+    "sign_up": "Большой",
+    "keep_logged_in": "Числа",
+    "termsOfUse": "Половины",
+    "reset_password": "Маленький"
+  },
+  "rating": {
+    "singleIcon": "Основные текстовые стили",
+    "twoIcons": "Вторичные текстовые стили",
+    "large": "Простой",
+    "numbers": "Ползунок",
+    "halves": "Продвинутый",
+    "small": "Кнопки С Символами"
+  },
+  "typography": {
+    "primary": "Размеры Button",
+    "secondary": "Признаки Button"
+  },
+  "colorPickers": {
+    "simple": "BUTTON",
+    "slider": "Button Groups",
+    "advanced": "Пуговицы Button"
+  },
+  "buttons": {
+    "advanced": "Нумерация страниц",
+    "size": "Открывает Движение EpicSpinners",
+    "tags": "для Диаграмм",
+    "button": "Цвета Button",
+    "buttonGroups": "ОТКЛЮЧЕННЫЙ",
+    "buttonToggles": "DROPDOWN",
+    "pagination": "ПАРЕНИЕ",
+    "a-link": "Типы Button",
+    "router-link": "НАЖАТЫЙ",
+    "colors": "ДЕФОЛТ",
+    "disabled": "СХЕМА",
+    "dropdown": "КВАРТИРА",
+    "hover": "БОЛЬШОЙ",
+    "types": "МАЛЕНЬКИЙ",
+    "pressed": "НОРМАЛЬНЫЙ",
+    "default": "УСПЕХ",
+    "outline": "ИНФОРМАЦИЯ",
+    "flat": "ОПАСНОСТЬ",
+    "large": "ПРЕДУПРЕЖДЕНИЕ",
+    "small": "СЕРЫЙ",
+    "normal": "ТЕМНЫЙ",
+    "success": "Диаграмма Горизонтальной планки",
+    "info": "Вертикальная Гистограмма",
+    "danger": "Линейная диаграмма",
+    "warning": "Круговая диаграмма",
+    "gray": "Диаграмма Пончика",
+    "dark": "Диаграмма Пузыря"
+  },
+  "charts": {
+    "horizontalBarChart": "Основной Крах",
+    "verticalBarChart": "Крах с фоном",
+    "lineChart": "Крах с таможенным заголовком",
+    "pieChart": "Ползунки",
+    "donutChart": "Диапазоны",
+    "bubbleChart": "простой символ этикетки"
+  },
+  "collapse": {
+    "basic": "Value",
+    "collapseWithBackground": "Label",
+    "collapseWithCustomHeader": "### Булавки"
+  },
+  "sliders": {
+    "slider": "булавки & стоимость",
+    "range": "Легкая сдоба",
+    "simple": "Стиль Легкой сдобы",
+    "value": "Размещение Легкой сдобы",
+    "label": "Минимальный Tooltip",
+    "labelPlusIcon": "Другой Tooltip",
+    "pins": "Дата рождения",
+    "pinsAndValue": "Дни недели"
+  },
+  "popovers": {
+    "popover": "встреча Установки",
+    "popoverStyle": "Предстоящий отпуск",
+    "popoverPlacement": "Несколько & отключенные даты",
+    "minimalTooltip": "Действующий",
+    "anotherOneTooltip": "Версии"
+  },
+  "datepickers": {
+    "dateOfBirth": "Установка Удаленные Связи",
+    "daysOfTheWeek": "Нынешние Посетители ###, Модные Тенденции",
+    "setupMeeting": "Удаляют Раздел",
+    "upcomingVacation": "Погрузка скорости",
+    "multipleAndDisabledDates": "Главные участники",
+    "inline": "Шоу, которое Все"
+  },
+  "dashboard": {
+    "versions": "Передают",
+    "setupRemoteConnections": "богатая компонентом тема",
+    "currentVisitors": "законченные запросы напряжения",
+    "charts": {
+      "trendyTrends": "пользователи",
+      "deleteSection": "пункты",
+      "loadingSpeed": "единицы",
+      "topContributors": "галерея Explore ###, Библиотека Представления",
+      "showAll": "передает",
+      "commits": "компоненты"
+    },
+    "info": {
+      "componentRichTheme": "члены команды",
+      "completedPullRequests": "Потрясающий стол",
+      "users": "Резюме",
+      "points": "Подробный",
+      "units": "Твердость",
+      "exploreGallery": "Решенный",
+      "viewLibrary": "Обзор",
+      "commits": "Построенный со структурой Vue.js",
+      "components": "Абсолютно свободный для всех",
+      "teamMembers": "Новый и свежий дизайн"
+    },
+    "table": {
+      "title": "Отзывчивый и оптимизированный для мобильного телефона",
+      "brief": "Тонны полезных компонентов",
+      "detailed": "Полностью jQuery, бесплатный",
+      "resolve": "Адрес выставления счета",
+      "resolved": "Личная Информация"
+    },
+    "tabs": {
+      "overview": {
+        "title": "Имя & Фамилия",
+        "built": "электронная почта",
+        "free": "Адрес",
+        "fresh": "Информация о компании",
+        "mobile": "Город",
+        "components": "Страна ###, связи Бога",
+        "nojQuery": "Добавляют Связь"
+      },
+      "billingAddress": {
+        "title": "Банковские реквизиты",
+        "personalInfo": "Области Деталей",
+        "firstName": "Название Банка",
+        "email": "Имя учетной записи",
+        "address": "Код банка",
+        "companyInfo": "Номер счета ###, Примечания",
+        "city": "Посылают Детали",
+        "country": "навигационное расположение",
+        "infiniteConnections": "Лучший Бар",
+        "addConnection": "Боковая панель"
+      },
+      "bankDetails": {
+        "title": "Уведомления",
+        "detailsFields": "Обрабатывающий",
+        "bankName": "Новая Этикетка",
+        "accountName": "Заплаченный ###, Вы успешно читаете это важное аварийное сообщение.",
+        "sortCode": "Информация",
+        "accountNumber": "для Этой тревоги нужно Ваше внимание, но это не супер важно.",
+        "notes": "В ожидании",
+        "sendDetails": "Лучше сдерживаются, Вы не выглядите слишком хорошими."
+      }
+    },
+    "navigationLayout": "Опасность",
+    "topBarButton": "Изменение несколько вещей и попытки, подчиняющейся снова.",
+    "sideBarButton": "Tooltips & Popovers"
+  },
+  "notificationsPage": {
+    "notifications": {
+      "title": "Название Легкой сдобы",
+      "gray": "текст Легкой сдобы",
+      "dark": "Символ Легкой сдобы (fontawesome)",
+      "success": "Выставочная Легкая сдоба",
+      "successMessage": "вершина",
+      "info": "rightside",
+      "infoMessage": "левый",
+      "warning": "ниже",
+      "warningMessage": "Тосты",
+      "danger": "текст",
+      "dangerMessage": "Продолжительность (миллисекунды)"
+    },
+    "popovers": {
+      "title": "Символ (fontawesome)",
+      "popoverTitleLabel": "Fullwidth",
+      "popoverTextLabel": "тост Запуска",
+      "popoverIconLabel": "Флажки, Радио, Выключатели, Пуговицы",
+      "showPopover": "Радио Людей с ограниченными возможностями",
+      "topTooltip": "Радио",
+      "rightTooltip": "Подписываются на информационный бюллетень",
+      "leftTooltip": "Флажок",
+      "bottomTooltip": "Disabled флажка"
+    },
+    "toasts": {
+      "title": "Readonly флажка",
+      "textLabel": "Selected флажка",
+      "durationLabel": "Unselected",
+      "iconLabel": "Флажок с ошибкой",
+      "fullWidthLabel": "Флажок с сообщениями об ошибках",
+      "launchToast": "сборщики времени Даты"
+    }
+  },
+  "forms": {
+    "controls": {
+      "title": "Основной",
+      "radioDisabled": "Время",
+      "radio": "Диапазон",
+      "subscribe": "Несколько",
+      "unselected": "Отключенный",
+      "selected": "таможенный первый день",
+      "readonly": "таможенный формат даты",
+      "disabled": "электронная почта (утвержденный с успехом)",
+      "error": "электронная почта (утвержденная)",
+      "errorMessage": "Вход С Символом"
+    },
+    "dateTimePicker": {
+      "title": "Вход С Кнопкой",
+      "basic": "Вход С Ясной Кнопкой",
+      "time": "Вход С Круглой Кнопкой",
+      "range": "Ввод текста",
+      "multiple": "Ввод текста (с описанием)",
+      "disabled": "текстовая область",
+      "customFirstDay": "Исходные данные",
+      "customDateFormat": "ЗАКАЧКА"
+    },
+    "inputs": {
+      "emailValidatedSuccess": "Средний Редактор",
+      "emailValidated": "Страна, Избранная ###, Страна, Много Избранный",
+      "inputWithIcon": "Много Избранный",
+      "inputWithButton": "Простой Избранный",
+      "inputWithClearButton": "Избранный с поиском",
+      "inputWithRoundButton": "Много Избранный с поиском ###, Выбирает",
+      "textInput": "Настольная Сетка",
+      "textInputWithDescription": "Фиксированная Сетка",
+      "textArea": "Погашения",
+      "title": "Отзывчивая Сетка",
+      "upload": "Назад ко всем символам"
+    },
+    "mediumEditor": {
+      "title": "Никакие символы, найденные"
+    },
+    "selects": {
+      "country": "поиск Символа",
+      "countryMulti": "Символы",
+      "multi": "Спиннеры",
+      "simple": "Приведенный в действие",
+      "searchable": "Português",
+      "searchableMulti": "английский язык",
+      "title": "испанский язык"
+    }
+  },
+  "grid": {
+    "desktop": "Упрощенный китайский",
+    "fixed": "Автор",
+    "offsets": "Оценивающий",
+    "responsive": "Кнопки"
+  },
+  "icons": {
+    "back": "Диаграммы",
+    "none": "Палитры цветов",
+    "search": "Крах",
+    "title": "Графики времени"
+  },
+  "spinners": {
+    "title": "Приборная панель",
+    "poweredBy": "Элементы Формы"
+  },
+  "language": {
+    "brazilian_portuguese": "Формы",
+    "english": "Средний Редактор",
+    "spanish": "Сетка",
+    "simplified_chinese": "Символы"
+  },
+  "menu": {
+    "auth": "Карты",
+    "rating": "Спиннеры",
+    "buttons": "Логин",
+    "charts": "Карты",
+    "colorPickers": "Страницы",
+    "collapses": "Modals",
+    "timelines": "Уведомления ###, Индикаторы выполнения",
+    "dashboard": "Подписываются",
+    "formElements": "Статистика",
+    "forms": "Списки",
+    "mediumEditor": "Столы",
+    "grid": "Столы Повышения",
+    "icons": "Таблицы данных",
+    "cards": "Жареный картофель",
+    "spinners": "Счета",
+    "login": "Книгопечатание",
+    "maps": "Элементы UI",
+    "pages": "Структурный вид",
+    "modals": "сборщики времени Даты",
+    "notifications": "Закачка Файла",
+    "progressBars": "Цвета",
+    "signUp": "Делающий интервалы",
+    "statistics": "Ползунки",
+    "lists": "Легкая сдоба ###, Беседа",
+    "tables": "Видит все сообщения",
+    "markupTables": "Новые сообщения с {имени} ###, Марк Как Прочитанный",
+    "dataTables": "Отменяет",
+    "chips": "Близко ###, Подтверждают",
+    "tabs": "Большой",
+    "typography": "Большой Модальный",
+    "uiElements": "Среда",
+    "treeView": "Среда, Модальная",
+    "dateTimePickers": "Маленький",
+    "fileUpload": "Маленький Модальный",
+    "colors": "Статичный ###, Это - статическое модальное, фон или щелчок спасения не закроют его.",
+    "spacing": "Статичный Модальный",
+    "sliders": "Modals",
+    "popovers": "Модальное Положение",
+    "chat": "Вершина"
+  },
+  "messages": {
+    "all": "Право",
+    "new": "Основание",
+    "mark_as_read": "Левый"
+  },
+  "modal": {
+    "cancel": "есть три вида зебр: зебра равнин, горная зебра и зебра Греви. Зебра равнин и горная зебра принадлежат подроду Иппо-Тигр, но Греви зебра - единственные разновидности подрода Долихогиппус. Последний напоминает задницу, к которой это тесно rela"
+  },
+  "dropdown": {},
+  "fileUpload": {},
+  "chips": {},
+  "navbar": {},
+  "notifications": {},
+  "timelines": {},
+  "progressBars": {},
+  "lists": {},
+  "tables": {
+    "headings": {}
+  },
+  "user": {},
+  "treeView": {},
+  "chat": {},
+  "spacingPlayground": {},
+  "cards": {
+    "title": {},
+    "button": {},
+    "link": {}
+  }
+}
