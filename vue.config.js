@@ -1,17 +1,17 @@
-const path = require('path')
+const path = require('path');
 
-let config
+let config;
 
 if (process.env.VUE_APP_BOOK) {
   config = {
-    lintOnSave: false,
+    lintOnSave: true,
     pages: {
       index: {
         entry: 'src/vue-book/book-main.js',
         template: 'public/index.html',
       },
     },
-  }
+  };
 }
 
 if (!process.env.VUE_APP_BOOK) {
@@ -36,7 +36,7 @@ if (!process.env.VUE_APP_BOOK) {
     configureWebpack: {
       resolve: {
         alias: {
-          'vue$': 'vue/dist/vue.esm.js',
+          vue$: 'vue/dist/vue.esm.js',
           '@': path.resolve('src'),
         },
       },
@@ -49,7 +49,7 @@ if (!process.env.VUE_APP_BOOK) {
         },
       },
     },
-  }
+  };
 }
 
-module.exports = config
+module.exports = config;

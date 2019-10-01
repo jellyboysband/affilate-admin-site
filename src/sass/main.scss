@@ -1,6 +1,6 @@
-@import "~vuestic-ui/src/components/vuestic-sass/global/reset.scss";
-@import "~vuestic-ui/src/components/vuestic-sass/global/normalize.scss";
-@import "~vuestic-ui/src/components/vuestic-sass/vuestic-styles.scss";
+@import '~vuestic-ui/src/components/vuestic-sass/global/reset.scss';
+@import '~vuestic-ui/src/components/vuestic-sass/global/normalize.scss';
+@import '~vuestic-ui/src/components/vuestic-sass/vuestic-styles.scss';
 @import './icons/icons.scss';
 .medium-title {
   font-size: 1em;
@@ -8,3 +8,17 @@
 .large-title {
   font-size: 2em;
 } 
+
+$dark-color: #17212b;
+$gray-color: #293b4d;
+$light-color: #dde3f9;
+$primary-color: #3f51b5;
+.dark {
+  background: $gray-color !important;
+  opacity: 0.85;
+  color: $light-color;
+}
+
+::selection {
+  background: $primary-color;
+}

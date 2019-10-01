@@ -1,9 +1,8 @@
-const config = state => state.app.config
-const palette = state => state.app.config.palette
-const isLoading = state => state.app.isLoading
+const config = state => state.app.config;
+const palette = state => state.app.config.palette;
+const isLoading = state => state.app.isLoading;
 
-export {
-  config,
-  palette,
-  isLoading,
-}
+const isLoggedIn = state => !!state.auth.token;
+const authStatus = state => state.auth.status;
+
+export { config, palette, isLoading, isLoggedIn, authStatus };
