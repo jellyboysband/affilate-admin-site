@@ -1,6 +1,6 @@
 <template>
   <va-card class="gray">
-    <va-tabs grow v-model="tabsState">
+    <va-tabs class="hidden-tab-line" grow v-model="tabsState">
       <va-tab>{{$t('dashboard.tabs.productCardTab.title')}}</va-tab>
     </va-tabs>
     <va-separator />

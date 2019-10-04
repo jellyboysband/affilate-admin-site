@@ -19,11 +19,18 @@
 
   .va-card {
     background-color: transparent;
+    box-shadow: none;
     img {
       border-radius: 10px;
     }
   }
   .va-tab__content {
     color: $medium-blue-color !important;
+  }
+}
+
+.hidden-tab-line {
+  .va-tabs__slider-wrapper {
+    background-color: transparent !important;
   }
 }
