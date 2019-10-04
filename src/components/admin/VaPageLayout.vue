@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="va-page-layout"
-  >
+  <div class="va-page-layout">
     <slot></slot>
     <div class="content-wrap" id="content-wrap">
       <slot name="content"></slot>
@@ -12,11 +10,11 @@
 <script>
 export default {
   name: 'va-page-layout',
-  data () {
+  data() {
     return {
       prevMatchLg: true,
       sidebar: null,
-    }
+    };
   },
   props: {
     mobileWidth: {
@@ -24,32 +22,35 @@ export default {
       default: 767,
     },
   },
-  mounted () {
-    this.sidebar = this.$el.querySelector('.va-sidebar')
+  mounted() {
+    this.sidebar = this.$el.querySelector('.va-sidebar');
 
-    window.addEventListener('resize', function () {
-      this.updateSidebarState()
-    }.bind(this))
-    this.updateSidebarState()
+    window.addEventListener(
+      'resize',
+      function() {
+        this.updateSidebarState();
+      }.bind(this)
+    );
+    this.updateSidebarState();
   },
   methods: {
-    checkIsDesktop () {
-      return window.matchMedia(`(min-width: ${this.mobileWidth}px)`).matches
+    checkIsDesktop() {
+      return window.matchMedia(`(min-width: ${this.mobileWidth}px)`).matches;
     },
-    updateSidebarState () {
+    updateSidebarState() {
       if (this.checkIsDesktop() && !this.prevMatchLg) {
-        this.$emit('toggleSidebar', false)
+        this.$emit('toggleSidebar', false);
       } else if (!this.checkIsDesktop() && this.prevMatchLg) {
-        this.$emit('toggleSidebar', true)
+        this.$emit('toggleSidebar', true);
       }
-      this.prevMatchLg = this.checkIsDesktop()
+      this.prevMatchLg = this.checkIsDesktop();
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
-@import "~vuestic-ui/src/components/vuestic-sass/resources/resources";
+@import '~vuestic-ui/src/components/vuestic-sass/resources/resources';
 $vuestic-preloader-left: calc(50% - 140px / 2);
 $vuestic-preloader-top: calc(50% - 104px / 2);
 

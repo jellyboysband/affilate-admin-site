@@ -12,13 +12,13 @@
 
       <div class="row">
         <div class="flex xs12 md6">
-          <va-card>
+          <va-card class="gray">
             <p class="display-2 mb-1" :style="{color: this.$themes.success}">118$</p>
             <p class="no-wrap">{{$t('dashboard.info.earned')}}</p>
           </va-card>
         </div>
         <div class="flex xs12 md6">
-          <va-card>
+          <va-card class="gray">
             <div class="row row-separated">
               <div class="flex xs4">
                 <p class="display-2 mb-1 text--center" :style="{color: this.$themes.info}">3$</p>
@@ -43,7 +43,7 @@
 <script>
 export default {
   name: 'DashboardInfoBlock',
-  data () {
+  data() {
     return {
       infoTiles: [
         {
@@ -65,9 +65,9 @@ export default {
           icon: '',
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="scss">

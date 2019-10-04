@@ -20,9 +20,9 @@
 
 <script>
 // import DashboardCharts from "./DashboardCharts";
-import DashboardInfoBlock from './DashboardInfoBlock'
+import DashboardInfoBlock from './DashboardInfoBlock';
 // import DashboardTable from "./DashboardTable";
-import DashboardTabs from './DashboardTabs'
+import DashboardTabs from './DashboardTabs';
 // import DashboardMap from "./DashboardMap";
 
 export default {
@@ -36,7 +36,7 @@ export default {
   },
 
   methods: {
-    launchEpicmaxToast () {
+    launchEpicmaxToast() {
       this.showToast(`Let's work together!`, {
         icon: 'fa-star-o',
         position: 'top-right',
@@ -46,10 +46,10 @@ export default {
           href: 'http://epicmax.co/#/contact',
           class: 'vuestic-toasted-link',
         },
-      })
+      });
     },
   },
-}
+};
 </script>
 
 <style lang="scss">

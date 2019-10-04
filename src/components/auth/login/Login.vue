@@ -6,7 +6,7 @@
       :label="$t('auth.password')"
       :error="!!passwordErrors.length"
       :error-messages="passwordErrors.join('; ')"
-      :style="{color:!!passwordErrors.length?$themes.light:$themes.dark}"
+      style="color:white !important;"
     />
 
     <div class="d-flex justify--center mt-3">

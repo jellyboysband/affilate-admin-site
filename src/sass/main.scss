@@ -3,16 +3,25 @@
 @import '~vuestic-ui/src/components/vuestic-sass/vuestic-styles.scss';
 @import './icons/icons.scss';
 
-$dark-color: #17212b;
-$gray-color: #293b4d;
-$light-color: #dde3f9;
-$primary-color: #3f51b5;
+@import './owerrides.scss';
+@import './constants.scss';
+
 .dark {
-  background: $gray-color !important;
-  opacity: 0.85;
+  background: $dark-color !important;
   color: $light-color;
 }
-
+.darker {
+  background: $darker-color !important;
+  color: $light-color;
+}
+.gray {
+  background: $gray-color !important;
+  color: $light-color;
+}
 ::selection {
   background: $primary-color;
+}
+
+.title-dark {
+  color: $medium-blue-color !important;
 }

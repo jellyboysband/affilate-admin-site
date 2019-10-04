@@ -3,7 +3,7 @@
     <div class="row row-equal">
       <div class="flex xs12 md6">
         <div
-          class="title text-dark mb-3"
+          class="title title-dark mb-3"
           :style="{color: $themes.primary}"
         >{{$t('dashboard.tabs.billingAddress.personalInfo')}}</div>
         <va-input
@@ -17,7 +17,7 @@
       </div>
       <div class="flex xs12 md6">
         <div
-          class="title text-dark mb-3"
+          class="title title-dark mb-3"
           :style="{color: $themes.primary}"
         >{{$t('dashboard.tabs.billingAddress.companyInfo')}}</div>
         <va-input :label="$t('dashboard.tabs.billingAddress.city')" v-model="form.city" />
@@ -56,7 +56,7 @@
 <script>
 export default {
   name: 'billing-address-tab',
-  data () {
+  data() {
     return {
       form: {
         name: 'John Smith',
@@ -67,7 +67,7 @@ export default {
         connection: true,
       },
       images: [],
-    }
+    };
   },
-}
+};
 </script>
