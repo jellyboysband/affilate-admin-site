@@ -14,7 +14,7 @@
     border-color: $light-color !important;
   }
   .va-input__container__label {
-    color: $light-color !important;
+    color: $medium-blue-color !important;
   }
 
   .va-card {
@@ -27,6 +27,17 @@
   .va-tab__content {
     color: $medium-blue-color !important;
   }
+  a {
+    color: $medium-blue-color !important;
+  }
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
 }
 
 .hidden-tab-line {

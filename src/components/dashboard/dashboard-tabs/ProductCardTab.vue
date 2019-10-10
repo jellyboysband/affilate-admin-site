@@ -1,24 +1,45 @@
 <template>
   <div class="pt-2 row row-equal" style="overflow: hidden;">
-    <va-card
-      class="flex xs12 title title-dark mb-3 gray"
-      :style="{color: $themes.primary}"
-      :title="$t('dashboard.tabs.productCardTab.info')"
-    >
+    <va-card class="flex xs12 title title-dark mb-3 gray" :style="{color: $themes.primary}">
       <va-input
         type="textarea"
         autosize
         :label="$t('dashboard.tabs.productCardTab.description')"
         v-model="form.title"
       />
-      <p>{{form.cost}}</p>
-      <div class="flex xs12 row row-equal">
+      <div class="flex xs12 row row-equal px-0">
+        <va-input
+          class="flex xs6"
+          type="text"
+          autosize
+          :label="$t('dashboard.tabs.productCardTab.maxCost') +' '+form.max.currency"
+          v-model.number="form.max.cost"
+          pattern="\d+(\.\d{2})?"
+        />
+        <va-input
+          class="flex xs6"
+          type="text"
+          autosize
+          :label="$t('dashboard.tabs.productCardTab.minCost') +' '+form.min.currency"
+          v-model.number="form.min.cost"
+          pattern="\d+(\.\d{2})?"
+        />
+      </div>
+      <p class="h3 gray" :href="form.url">
+        {{$t('dashboard.tabs.productCardTab.rate')}}:
+        <span
+          class="underline"
+        >{{form.our_rating*100}}%</span>
+      </p>
+      <hr class="my-3" />
+      <a class="underline h3" :href="form.url">{{$t('dashboard.tabs.productCardTab.link')}}</a>
+      <div class="flex xs12 row row-equal px-0">
         <va-card
-          v-for="i of 10"
+          v-for="(url,i) of form.images"
           :key="i"
           class="flex xs3 w-100"
           style="height:15em;"
-          image="https://i.imgur.com/qSykGko.jpg"
+          :image="url"
           titleOnImage
         >
           <template slot="header">
@@ -31,8 +52,15 @@
         </va-card>
       </div>
     </va-card>
-    <div class="row justify--center">
-      <va-button>Add Connection</va-button>
+    <div class="flex xs12">
+      <va-button
+        color="danger"
+        class="flex xs3 float-left"
+      >{{$t('dashboard.tabs.productCardTab.skip')}}</va-button>
+      <va-button
+        color="success"
+        class="flex xs3 float-right"
+      >{{$t('dashboard.tabs.productCardTab.confirm')}}</va-button>
     </div>
   </div>
 </template>
@@ -44,18 +72,25 @@ export default {
     return {
       form: {
         title:
-          'John Smith John Smith John Smith John Smith John Smith John Smith ' +
-          'John Smith John Smith John Smith John Smith John Smith John Smith ' +
-          'John Smith John Smith John Smith John Smith John Smith John Smith ' +
-          'John Smith John Smith John Smith John Smith John Smith John Smith ' +
-          'John Smith John Smith John Smith John Smith John Smith John Smith ' +
-          'John Smith John Smith John Smith John Smith John Smith John Smith ' +
-          'John Smith John Smith John Smith John Smith ',
-        costMin: 'smith@gmail.com',
-        costMax: '93  Guild Street',
-        cost: 321,
-        url: 'United Kingdom',
-        images: [],
+          'Милый мультяшный складной стенд для мобильного телефона держатель для iPhone X 8 7 6 Plus IPAD для samsung для huawei Чехол ручка Kichstand',
+        our_rating: 0.65,
+        id: 33035922085,
+        url: 'https://ru.aliexpress.com/item/33035922085.html',
+        total_sales: 2496,
+        rating_product: 4.7,
+        total_comment: 482,
+        images: [
+          'https://ae01.alicdn.com/kf/H6750177997234b2ea2d3492850d233fdu/-.jpg',
+          'https://ae01.alicdn.com/kf/He55a1130d0cf4c4db919e77c8ec1e014N/-.jpg',
+          'https://ae01.alicdn.com/kf/H094356dcd8a04a3d9cc2cca8bd66f17ey/-.jpg',
+          'https://ae01.alicdn.com/kf/Ha34eb4fb7fe8401e85a8a38b36ef58b7O/-.jpg',
+          'https://ae01.alicdn.com/kf/Hdfaff76ccc6f4af79eda30c89183e17fl/-.jpg',
+          'https://ae01.alicdn.com/kf/Hc22b83bdc8a94d5e8994aa33a89dedf5L/-.jpg',
+        ],
+        discount: 0,
+        max: { currency: 'RUB', cost: 61.84 },
+        min: { currency: '', cost: 0 },
+        shop: { id: 3003020, name: 'woyang Store', followers: 6843, positive_rate: 96 },
       },
       images: [],
     };
