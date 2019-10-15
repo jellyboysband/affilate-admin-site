@@ -1,74 +1,131 @@
 <template>
-  <div class="pt-2">
-    <div class="row row-equal">
-      <div class="flex xs12">
-        <div
-          class="title text-dark mb-3 medium-title"
-          :style="{color: $themes.primary,}"
-        >{{$t('dashboard.data.primary')}}</div>
+  <div class="pt-2 row row-equal" style="overflow: hidden;">
+    <va-card class="row title-dark my gray" :style="{color: $themes.primary}">
+      <!-- INPUTS -->
+      <div class="row">
         <va-input
           type="textarea"
           autosize
-          minRows="6"
-          :label="$t('dashboard.data.title')"
-          v-model.trim="form.title"
+          :label="$t('dashboard.tabs.productCardTab.description')"
+          v-model="form.title"
+          class="flex xs12"
         />
 
-        <div class="flex xs12 row row-equal justify-content-center">
-          <va-card
-            v-for="(image,i) of images"
-            :key="i"
-            class="flex xs3 w-100 mx-auto"
-            style="height:20rem;"
-            :image="image"
-            square
-            titleOnImage
-          >
-            <template slot="header">
-              <va-button
-                :color="form.images.includes(image)?'success':'danger'"
-                @click="form.images.includes(image)?form.images.splice(form.images.findIndex(it=>it===image),1):form.images.push(image)"
-                class="ma-0 mb-3"
-              >{{ form.images.includes(image)?'✔':'✗' }}</va-button>
-            </template>
-          </va-card>
-        </div>
-
-        <VbCard class="flex row">
-          <a
-            :href="form.url"
-            class="link large-title flex xs-6"
-            :style="`color:${$themes.primary}`"
-          >{{$t('dashboard.data.url')}}</a>
-
-          <p class="flex xs-6"></p>
-        </VbCard>
+        <va-input
+          class="flex xs6"
+          type="text"
+          autosize
+          :label="$t('dashboard.tabs.productCardTab.minCost') +' '+form.min.currency"
+          v-model.number="form.min.cost"
+          pattern="\d+(\.\d{2})?"
+        />
+        <va-input
+          class="flex xs6"
+          type="text"
+          autosize
+          :label="$t('dashboard.tabs.productCardTab.maxCost') +' '+form.max.currency"
+          v-model.number="form.max.cost"
+          pattern="\d+(\.\d{2})?"
+        />
       </div>
-    </div>
-    <div class="row justify--center">
-      <va-button class="flex xs3 py-3 mx-4" color="danger">{{$t('dashboard.data.skip')}}</va-button>
-      <va-button class="flex xs3 py-3 mx-4" color="success">{{$t('dashboard.data.add')}}</va-button>
+      <!-- OPTIONAL -->
+      <div class="row">
+        <a
+          class="underline h3 flex xs2"
+          :href="form.url"
+        >{{$t('dashboard.tabs.productCardTab.link')}}</a>
+
+        <p class="h3 gray mb-3 flex xs2" :href="form.url">
+          {{$t('dashboard.tabs.productCardTab.rate')}}:
+          <span
+            class="underline"
+          >{{form.our_rating*100}}%</span>
+        </p>
+      </div>
+      <hr class="mb-2" />
+
+      <div class="row">
+        <va-card
+          v-for="(url,i) of form.images"
+          :key="i"
+          class="flex xs2 w-100"
+          style="height:15em;"
+          :image="url"
+          titleOnImage
+        >
+          <template slot="header">
+            <va-button
+              :color="images.includes(i)?'success':'danger'"
+              @click="images.includes(i)?images.splice(images.findIndex(it=>it===i),1):images.push(i)"
+              class="ma-0 mb-3"
+            >{{ images.includes(i)?'✔':'✗' }}</va-button>
+          </template>
+        </va-card>
+      </div>
+    </va-card>
+
+    <!-- BUTTONS -->
+    <div class="flex xs12">
+      <va-button
+        color="danger"
+        class="flex xs3 float-left"
+        @click="getProduct()"
+      >{{$t('dashboard.tabs.productCardTab.skip')}}</va-button>
+      <va-button
+        color="success"
+        class="flex xs3 float-right"
+        @click="sendProduct(form)"
+      >{{$t('dashboard.tabs.productCardTab.confirm')}}</va-button>
     </div>
   </div>
 </template>
 
 <script>
+import ProductService from '../../../services/network/ProductService';
 export default {
-  name: "billing-address-tab",
+  name: 'billing-address-tab',
+  created() {
+    this.getProduct();
+  },
+  methods: {
+    getProduct() {
+      ProductService.get().then(response => {
+        this.form = response;
+      });
+    },
+    sendProduct() {
+      ProductService.send({
+        ...this.form,
+        images: this.images.map(it => this.form.images[it]),
+      }).then(_ => {
+        this.getProduct();
+      });
+    },
+  },
   data() {
     return {
       form: {
-        images: [],
-        url: "https://ru.aliexpress.com/item/33035919784.html",
         title:
-          "Детская футболка с рисунком медведя, мамы, папы, медведя, сестры, брата, медведя; женская футболка с короткими рукавами и принтом; хлопковая Футболка с графическим принтом; футболки"
+          'Милый мультяшный складной стенд для мобильного телефона держатель для iPhone X 8 7 6 Plus IPAD для samsung для huawei Чехол ручка Kichstand',
+        our_rating: 0.65,
+        id: 33035922085,
+        url: 'https://ru.aliexpress.com/item/33035922085.html',
+        total_sales: 2496,
+        rating_product: 4.7,
+        total_comment: 482,
+        images: [
+          'https://ae01.alicdn.com/kf/H6750177997234b2ea2d3492850d233fdu/-.jpg',
+          'https://ae01.alicdn.com/kf/He55a1130d0cf4c4db919e77c8ec1e014N/-.jpg',
+          'https://ae01.alicdn.com/kf/H094356dcd8a04a3d9cc2cca8bd66f17ey/-.jpg',
+          'https://ae01.alicdn.com/kf/Ha34eb4fb7fe8401e85a8a38b36ef58b7O/-.jpg',
+        ],
+        discount: 0,
+        max: { currency: 'RUB', cost: 61.84 },
+        min: { currency: '', cost: 0 },
+        shop: { id: 3003020, name: 'woyang Store', followers: 6843, positive_rate: 96 },
       },
-      images: [
-        "https://ae01.alicdn.com/kf/HTB1o2AHbEKF3KVjSZFEq6xExFXa3/-.jpg",
-        "https://ae01.alicdn.com/kf/HTB1KJoJbBGE3KVjSZFhq6AkaFXaa/-.jpg",
-        "https://ae01.alicdn.com/kf/HTB1I3NiRwHqK1RjSZFPq6AwapXaC/-.jpg"
-      ]
+      images: [],
     };
-  }
+  },
 };
-</script> 
+</script>

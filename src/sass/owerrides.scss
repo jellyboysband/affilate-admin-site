@@ -1,0 +1,47 @@
+@import './constants.scss';
+
+.va-navbar__shape {
+  border-top-color: $gray-color !important;
+}
+
+.dark,
+.darker {
+  .va-input__container__input {
+    color: $light-color !important;
+  }
+  .va-input__container {
+    background-color: $light-gray-color !important;
+    border-color: $light-color !important;
+  }
+  .va-input__container__label {
+    color: $medium-blue-color !important;
+  }
+
+  .va-card {
+    background-color: transparent;
+    box-shadow: none;
+    img {
+      border-radius: 10px;
+    }
+  }
+  .va-tab__content {
+    color: $medium-blue-color !important;
+  }
+  a {
+    color: $medium-blue-color !important;
+  }
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.hidden-tab-line {
+  .va-tabs__slider-wrapper {
+    background-color: transparent !important;
+  }
+}

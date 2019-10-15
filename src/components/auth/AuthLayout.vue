@@ -1,11 +1,8 @@
 <template>
-  <div
-    class="auth-layout row align-content--center"
-    :style="{background:$themes.dark, opacity:0.9}"
-  >
+  <div class="auth-layout row align-content--center dark">
     <div class="flex xs12 pa-3">
       <div class="d-flex justify--center">
-        <va-card class="auth-layout__card dark">
+        <va-card class="auth-layout__card gray">
           <va-tabs v-model="tabIndex" center>
             <va-tab>{{ $t('auth.login') }}</va-tab>
           </va-tabs>

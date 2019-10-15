@@ -9,16 +9,43 @@
   font-size: 2em;
 } 
 
-$dark-color: #17212b;
-$gray-color: #293b4d;
-$light-color: #dde3f9;
-$primary-color: #3f51b5;
+@import './owerrides.scss';
+@import './constants.scss';
+
 .dark {
-  background: $gray-color !important;
-  opacity: 0.85;
+  background: $dark-color !important;
   color: $light-color;
 }
-
+.darker {
+  background: $darker-color !important;
+  color: $light-color;
+}
+.gray {
+  background: $gray-color !important;
+  color: $light-color;
+}
 ::selection {
   background: $primary-color;
+}
+
+.title-dark {
+  color: $medium-blue-color !important;
+}
+
+.underline {
+  text-decoration: underline;
+}
+.h1 {
+  font-size: 36pt;
+}
+
+.h2 {
+  font-size: 26pt;
+}
+.h3 {
+  font-size: 16pt;
+}
+
+.h4 {
+  font-size: 10pt;
 }

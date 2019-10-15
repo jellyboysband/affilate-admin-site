@@ -1,28 +1,26 @@
 <template>
   <div class="dashboard">
     <!-- <dashboard-charts /> -->
-    <dashboard-info-block />
+    <!-- <dashboard-info-block /> -->
     <!-- <div class="row">
       <div class="flex xs12">
         <dashboard-table />
       </div>
     </div>-->
-    <div class="row row-equal">
-      <div class="flex xs10 mx-auto">
-        <dashboard-tabs />
-      </div>
-      <!-- <div class="flex xs12 lg6">
+    <!-- <div class="row row-equal"> -->
+    <dashboard-tabs class="flex xs10 mx-auto" />
+    <!-- <div class="flex xs12 lg6">
         <dashboard-map />
-      </div>-->
-    </div>
+    </div>-->
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
 // import DashboardCharts from "./DashboardCharts";
-import DashboardInfoBlock from './DashboardInfoBlock'
+import DashboardInfoBlock from './DashboardInfoBlock';
 // import DashboardTable from "./DashboardTable";
-import DashboardTabs from './DashboardTabs'
+import DashboardTabs from './DashboardTabs';
 // import DashboardMap from "./DashboardMap";
 
 export default {
@@ -36,7 +34,7 @@ export default {
   },
 
   methods: {
-    launchEpicmaxToast () {
+    launchEpicmaxToast() {
       this.showToast(`Let's work together!`, {
         icon: 'fa-star-o',
         position: 'top-right',
@@ -46,10 +44,10 @@ export default {
           href: 'http://epicmax.co/#/contact',
           class: 'vuestic-toasted-link',
         },
-      })
+      });
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
