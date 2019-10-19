@@ -5,7 +5,7 @@
       type="password"
       :label="$t('auth.password')"
       :error="!!passwordErrors.length"
-      :error-messages="passwordErrors.join('; ')"
+      :error-messages="[passwordErrors.join('; ')]"
       style="color:white !important;"
     />
 
@@ -45,7 +45,6 @@ export default {
         })
         .catch(err => {
           this.$set(this.passwordErrors, this.passwordErrors.length, err.message);
-          console.error(err);
         });
     },
   },

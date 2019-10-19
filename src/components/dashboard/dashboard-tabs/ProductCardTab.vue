@@ -39,7 +39,7 @@
           {{$t('dashboard.tabs.productCardTab.rate')}}:
           <span
             class="underline"
-          >{{form.our_rating*100}}%</span>
+          >{{~~(form.our_rating*100)}}%</span>
         </p>
       </div>
       <hr class="mb-2" />
@@ -87,7 +87,31 @@ export default {
   created() {
     this.getProduct();
   },
+  beforeMount() {
+    window.addEventListener('beforeunload', this.preventNav);
+  },
+  beforeDestroy() {
+    window.removeEventListener('beforeunload', this.preventNav);
+  },
+  beforeRouteLeave(to, from, next) {
+    if (this.shouldLeave) {
+      next();
+    } else {
+      const answer = window.confirm('Вы хотите уйти? У вы не завершили последний товар!');
+      if (answer) {
+        next();
+      } else {
+        next(false);
+      }
+    }
+  },
   methods: {
+    preventNav(e) {
+      if (this.shouldLeave || !this.isChanged) return;
+      e.preventDefault();
+      e.returnValue = '';
+    },
+
     getProduct() {
       ProductService.get().then(response => {
         this.form = response;
@@ -98,7 +122,12 @@ export default {
         ...this.form,
         images: this.images.map(it => this.form.images[it]),
       }).then(_ => {
-        this.getProduct();
+        if (confirm('Продолжить?')) {
+          this.getProduct();
+        } else {
+          this.shouldLeave = true;
+          window.close();
+        }
       });
     },
   },
@@ -125,6 +154,7 @@ export default {
         shop: { id: 3003020, name: 'woyang Store', followers: 6843, positive_rate: 96 },
       },
       images: [],
+      shouldLeave: false,
     };
   },
 };

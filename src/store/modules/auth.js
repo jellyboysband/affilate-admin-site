@@ -5,6 +5,11 @@ const state = {
   token: localStorage.getItem('token') || '',
 };
 
+
+
+
+
+
 const mutations = {
   auth_request(state) {
     state.status = 'loading';
@@ -27,6 +32,11 @@ const mutations = {
   },
 };
 
+
+
+
+
+
 const actions = {
   login({ commit }, { password }) {
     return new Promise((resolve, reject) => {
@@ -35,17 +45,15 @@ const actions = {
         `${window.env.API_URL}/admin/login`,
         {
           password,
+
         },
         {}
       )
         .then(response => {
           const token = response.data.token;
           window.localStorage.setItem('token', token);
-
           Axios.defaults.headers.common['token'] = token;
-
           commit('auth_success', token);
-
           resolve(response);
         })
         .catch(err => {
