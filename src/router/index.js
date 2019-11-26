@@ -16,7 +16,7 @@ const demoRoutes = []
 // }
 
 export default new Router({
-  mode: process.env.VUE_APP_ROUTER_MODE_HISTORY === 'true' ? 'history' : 'hash',
+  mode: process.env.NODE_ENV === 'production' ? 'history' : 'hash',
   routes: [
     ...demoRoutes,
     {
@@ -66,7 +66,7 @@ export default new Router({
     },
     {
       name: 'Admin',
-      path: '/admin',
+      path: '/views',
       component: AppLayout,
       children: [
         {

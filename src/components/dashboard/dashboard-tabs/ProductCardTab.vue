@@ -55,10 +55,10 @@
         >
           <template slot="header">
             <va-button
-              :color="images.includes(i)?'success':'danger'"
-              @click="images.includes(i)?images.splice(images.findIndex(it=>it===i),1):images.push(i)"
+              :color="images ===url?'success':'danger'"
+              @click="images=url"
               class="ma-0 mb-3"
-            >{{ images.includes(i)?'✔':'✗' }}</va-button>
+            >{{ images ===url?'✔':'✗' }}</va-button>
           </template>
         </va-card>
       </div>
@@ -69,7 +69,7 @@
       <va-button
         color="danger"
         class="flex xs3 float-left"
-        @click="getProduct()"
+        @click="skip()"
       >{{$t('dashboard.tabs.productCardTab.skip')}}</va-button>
       <va-button
         color="success"
@@ -106,6 +106,9 @@ export default {
     }
   },
   methods: {
+    skip() {
+      this.getProduct();
+    },
     preventNav(e) {
       if (this.shouldLeave || !this.isChanged) return;
       e.preventDefault();
@@ -115,12 +118,17 @@ export default {
     getProduct() {
       ProductService.get().then(response => {
         this.form = response;
+        if (response.images.length) {
+          this.images = response.images[0];
+        } else {
+          this.images = '';
+        }
       });
     },
     sendProduct() {
       ProductService.send({
         ...this.form,
-        images: this.images.map(it => this.form.images[it]),
+        images: [this.images || 'https://dlw.su/images/no_photo.jpg'],
       }).then(_ => {
         if (confirm('Продолжить?')) {
           this.getProduct();
@@ -153,7 +161,7 @@ export default {
         min: { currency: '', cost: 0 },
         shop: { id: 3003020, name: 'woyang Store', followers: 6843, positive_rate: 96 },
       },
-      images: [],
+      images: '',
       shouldLeave: false,
     };
   },

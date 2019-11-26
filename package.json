@@ -6,10 +6,13 @@
   "author": "smartapant <smartapant@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "inspect": "vue-cli-service inspect > inspect.js",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "build": "NODE_ENV=production vue-cli-service build --dest dist/admin src/admin/index.js",
+    "backup": "ssh -o ServerAliveInterval=60 exorcist@35.204.79.205  'rm -rf /var/www/affiliate_admin_old/* && cp -r -f /var/www/affiliate_admin/* /var/www/affiliate_admin_old/'",
+    "rmOld": "ssh -o ServerAliveInterval=60 exorcist@35.204.79.205  'rm -rf /var/www/affiliate_admin/*'",
+    "deploy": "npm run build && npm run backup && npm run rmOld && rsync -rvz dist/admin/ exorcist@35.204.79.205:/var/www/affiliate_admin"
   },
   "dependencies": {
     "@types/jest": "^24.0.11",

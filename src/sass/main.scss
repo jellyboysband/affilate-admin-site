@@ -1,16 +1,16 @@
-@import '~vuestic-ui/src/components/vuestic-sass/global/reset.scss';
-@import '~vuestic-ui/src/components/vuestic-sass/global/normalize.scss';
-@import '~vuestic-ui/src/components/vuestic-sass/vuestic-styles.scss';
-@import './icons/icons.scss';
+@import "~vuestic-ui/src/components/vuestic-sass/global/reset.scss";
+@import "~vuestic-ui/src/components/vuestic-sass/global/normalize.scss";
+@import "~vuestic-ui/src/components/vuestic-sass/vuestic-styles.scss";
+@import "./icons/icons.scss";
 .medium-title {
   font-size: 1em;
-} 
+}
 .large-title {
   font-size: 2em;
-} 
+}
 
-@import './owerrides.scss';
-@import './constants.scss';
+@import "./owerrides.scss";
+@import "./constants.scss";
 
 .dark {
   background: $dark-color !important;
@@ -48,4 +48,8 @@
 
 .h4 {
   font-size: 10pt;
+}
+
+.va-page-layout {
+  min-height: 100vh;
 }
