@@ -6,6 +6,9 @@ class ProductService {
   static send(data) {
     return axios.post(`${window.env.API_URL}/admin/product`, data).then(response => response.data);
   }
+  static dashboard() {
+    return axios.get(`${window.env.API_URL}/admin/dashboard`).then(response => response.data);
+  }
 }
 
 export default ProductService;

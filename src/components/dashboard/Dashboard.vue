@@ -1,36 +1,39 @@
 <template>
   <div class="dashboard">
-    <!-- <dashboard-charts /> -->
-    <!-- <dashboard-info-block /> -->
-    <!-- <div class="row">
-      <div class="flex xs12">
-        <dashboard-table />
-      </div>
-    </div>-->
-    <!-- <div class="row row-equal"> -->
-    <dashboard-tabs class="flex xs10 mx-auto" />
-    <!-- <div class="flex xs12 lg6">
-        <dashboard-map />
-    </div>-->
-    <!-- </div> -->
+    <dashboard-info-block :info="info" />
+    <div class="row" v-if="!visibleCard">
+      <va-button
+        :disabled="info.getQ===0"
+        class="flex xs10 mx-auto"
+        @click="()=>{getProduct();visibleCard=true}"
+      >{{$t('btn.getProduct')}}</va-button>
+    </div>
+    <va-card v-else class="flex xs10 mx-auto gray">
+      <ProductCardTab ref="tabsRef" @sendProduct="sendProduct" @skipProduct="getProduct()" />
+    </va-card>
+
+    <!-- <dashboard-tabs
+      v-else
+      
+    />-->
   </div>
 </template>
 
 <script>
-// import DashboardCharts from "./DashboardCharts";
 import DashboardInfoBlock from './DashboardInfoBlock';
-// import DashboardTable from "./DashboardTable";
 import DashboardTabs from './DashboardTabs';
-// import DashboardMap from "./DashboardMap";
+import ProductCardTab from './dashboard-tabs/ProductCardTab';
+import ProductService from '../../services/network/ProductService';
 
 export default {
   name: 'dashboard',
   components: {
-    // DashboardCharts,
     DashboardInfoBlock,
-    // DashboardTable,
     DashboardTabs,
-    // DashboardMap
+    ProductCardTab,
+  },
+  created() {
+    this.getInfo();
   },
 
   methods: {
@@ -46,6 +49,39 @@ export default {
         },
       });
     },
+    getInfo() {
+      ProductService.dashboard().then(resp => {
+        this.info.sendQ = resp.sendQ;
+        this.info.getQ = resp.getQ;
+      });
+    },
+    getProduct() {
+      ProductService.get().then(response => {
+        this.product = response;
+        console.log('TCL: getProduct -> response', response);
+        this.$refs.tabsRef.updateForm(response);
+        this.getInfo();
+      });
+    },
+    sendProduct(data) {
+      ProductService.send(data).then(_ => {
+        if (confirm('Продолжить?')) {
+          this.getProduct();
+        } else {
+          this.shouldLeave = true;
+          this.visibleCard = false;
+        }
+      });
+    },
+  },
+  data() {
+    return {
+      visibleCard: false,
+      info: {
+        sendQ: 0,
+        getQ: 0,
+      },
+    };
   },
 };
 </script>

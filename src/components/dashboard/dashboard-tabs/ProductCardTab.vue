@@ -81,12 +81,9 @@
 </template>
 
 <script>
-import ProductService from '../../../services/network/ProductService';
 export default {
   name: 'billing-address-tab',
-  created() {
-    this.getProduct();
-  },
+  created() {},
   beforeMount() {
     window.addEventListener('beforeunload', this.preventNav);
   },
@@ -107,35 +104,21 @@ export default {
   },
   methods: {
     skip() {
-      this.getProduct();
+      this.$emit('skipProduct');
     },
     preventNav(e) {
-      if (this.shouldLeave || !this.isChanged) return;
+      if (this.shouldLeave) return;
       e.preventDefault();
       e.returnValue = '';
     },
 
-    getProduct() {
-      ProductService.get().then(response => {
-        this.form = response;
-        if (response.images.length) {
-          this.images = response.images[0];
-        } else {
-          this.images = '';
-        }
-      });
+    updateForm(data) {
+      this.form = JSON.parse(JSON.stringify(data));
     },
     sendProduct() {
-      ProductService.send({
+      this.$emit('sendProduct', {
         ...this.form,
         images: [this.images || 'https://dlw.su/images/no_photo.jpg'],
-      }).then(_ => {
-        if (confirm('Продолжить?')) {
-          this.getProduct();
-        } else {
-          this.shouldLeave = true;
-          window.close();
-        }
       });
     },
   },
