@@ -9,6 +9,7 @@ module.exports = {
       lowCost: 'Дешёвые',
       mediumCost: 'Средние',
       highCost: 'Дорогие',
+      waitPost: 'Ожидает постинга',
     },
     btn: {
       getProduct: 'Начать!',

@@ -2,15 +2,21 @@
   <div class="row row-equal">
     <div class="flex xl6 xs12 mx-auto">
       <div class="row">
-        <div class="flex xs12 sm4" v-for="(info, idx) in infoTiles" :key="idx">
-          <va-card class="mb-4" :color="info.color">
-            <p class="display-2 mb-0" style="color: white">{{ info.value }}</p>
-            <p style="color: white">{{$t('dashboard.info.' + info.text)}}</p>
+        <div class="flex xs12 sm6">
+          <va-card class="mb-4" color="secondary">
+            <p class="display-2 mb-0" style="color: white">{{ info.getQ }}</p>
+            <p style="color: white">{{$t('dashboard.info.parsed')}}</p>
+          </va-card>
+        </div>
+        <div class="flex xs12 sm6">
+          <va-card class="mb-4" color="info">
+            <p class="display-2 mb-0" style="color: white">{{ info.sendQ }}</p>
+            <p style="color: white">{{$t('dashboard.info.waitPost')}}</p>
           </va-card>
         </div>
       </div>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="flex xs12 md6">
           <va-card class="gray">
             <p class="display-2 mb-1" :style="{color: this.$themes.success}">118$</p>
@@ -35,7 +41,7 @@
             </div>
           </va-card>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
@@ -43,27 +49,28 @@
 <script>
 export default {
   name: 'DashboardInfoBlock',
+  props: ['info'],
   data() {
     return {
       infoTiles: [
         {
           color: 'secondary',
-          value: '803',
+          value: this.info.getQ,
           text: 'parsed',
           icon: '',
         },
         {
           color: 'info',
-          value: '57',
-          text: 'moderated',
+          value: this.info.sendQ,
+          text: 'waitPost',
           icon: '',
         },
-        {
-          color: 'success',
-          value: '5',
-          text: 'posted',
-          icon: '',
-        },
+        // {
+        //   color: 'success',
+        //   value: '5',
+        //   text: 'posted',
+        //   icon: '',
+        // },
       ],
     };
   },

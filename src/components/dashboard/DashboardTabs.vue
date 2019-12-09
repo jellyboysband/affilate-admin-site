@@ -12,7 +12,7 @@
 import ProductCardTab from './dashboard-tabs/ProductCardTab';
 
 export default {
-  name: "DashboardTab",
+  name: 'DashboardTab',
   components: {
     ProductCardTab,
   },
