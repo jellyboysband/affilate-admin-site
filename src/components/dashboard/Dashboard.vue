@@ -3,10 +3,16 @@
     <dashboard-info-block :info="info" />
     <div class="row" v-if="!visibleCard">
       <va-button
-        :disabled="info.getQ===0"
+        :disabled="info.getQ === 0"
         class="flex xs10 mx-auto"
-        @click="()=>{getProduct();visibleCard=true}"
-      >{{$t('btn.getProduct')}}</va-button>
+        @click="
+          () => {
+            getProduct();
+            visibleCard = true;
+          }
+        "
+        >{{ $t('btn.getProduct') }}</va-button
+      >
     </div>
     <va-card v-else class="flex xs10 mx-auto gray">
       <ProductCardTab ref="tabsRef" @sendProduct="sendProduct" @skipProduct="getProduct()" />
@@ -53,18 +59,29 @@ export default {
       ProductService.dashboard().then(resp => {
         this.info.sendQ = resp.sendQ;
         this.info.getQ = resp.getQ;
+        this.info.postQ = resp.postQ;
       });
     },
     getProduct() {
-      ProductService.get().then(response => {
-        this.product = response;
-        console.log('TCL: getProduct -> response', response);
-        this.$refs.tabsRef.updateForm(response);
-        this.getInfo();
-      });
+      ProductService.get()
+        .then(response => {
+          this.product = response;
+          console.log('TCL: getProduct -> response', response);
+          this.$refs.tabsRef.updateForm(response);
+          this.getInfo();
+        })
+        .catch(_ => {
+          this.getInfo();
+          this.visibleCard = false;
+        });
     },
     sendProduct(data) {
       ProductService.send(data).then(_ => {
+        if (this.info.getQ === 0) {
+          this.getInfo();
+          this.visibleCard = false;
+          return;
+        }
         if (confirm('Продолжить?')) {
           this.getProduct();
         } else {
@@ -80,6 +97,7 @@ export default {
       info: {
         sendQ: 0,
         getQ: 0,
+        postQ: 0,
       },
     };
   },

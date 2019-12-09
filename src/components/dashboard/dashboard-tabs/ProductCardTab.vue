@@ -1,6 +1,6 @@
 <template>
   <div class="pt-2 row row-equal" style="overflow: hidden;">
-    <va-card class="row title-dark my gray" :style="{color: $themes.primary}">
+    <va-card class="row title-dark my gray" :style="{ color: $themes.primary }">
       <!-- INPUTS -->
       <div class="row">
         <va-input
@@ -15,7 +15,7 @@
           class="flex xs6"
           type="text"
           autosize
-          :label="$t('dashboard.tabs.productCardTab.minCost') +' '+form.min.currency"
+          :label="$t('dashboard.tabs.productCardTab.minCost') + ' ' + form.min.currency"
           v-model.number="form.min.cost"
           pattern="\d+(\.\d{2})?"
         />
@@ -23,30 +23,27 @@
           class="flex xs6"
           type="text"
           autosize
-          :label="$t('dashboard.tabs.productCardTab.maxCost') +' '+form.max.currency"
+          :label="$t('dashboard.tabs.productCardTab.maxCost') + ' ' + form.max.currency"
           v-model.number="form.max.cost"
           pattern="\d+(\.\d{2})?"
         />
       </div>
       <!-- OPTIONAL -->
       <div class="row">
-        <a
-          class="underline h3 flex xs2"
-          :href="form.url"
-        >{{$t('dashboard.tabs.productCardTab.link')}}</a>
+        <a class="underline h3 flex xs2" :href="form.url">{{
+          $t('dashboard.tabs.productCardTab.link')
+        }}</a>
 
         <p class="h3 gray mb-3 flex xs2" :href="form.url">
-          {{$t('dashboard.tabs.productCardTab.rate')}}:
-          <span
-            class="underline"
-          >{{~~(form.our_rating*100)}}%</span>
+          {{ $t('dashboard.tabs.productCardTab.rate') }}:
+          <span class="underline">{{ ~~(form.our_rating * 100) }}%</span>
         </p>
       </div>
       <hr class="mb-2" />
 
       <div class="row">
         <va-card
-          v-for="(url,i) of form.images"
+          v-for="(url, i) of form.images"
           :key="i"
           class="flex xs2 w-100"
           style="height:15em;"
@@ -55,10 +52,11 @@
         >
           <template slot="header">
             <va-button
-              :color="images ===url?'success':'danger'"
-              @click="images=url"
+              :color="images === url ? 'success' : 'danger'"
+              @click="images = url"
               class="ma-0 mb-3"
-            >{{ images ===url?'✔':'✗' }}</va-button>
+              >{{ images === url ? '✔' : '✗' }}</va-button
+            >
           </template>
         </va-card>
       </div>
@@ -66,16 +64,12 @@
 
     <!-- BUTTONS -->
     <div class="flex xs12">
-      <va-button
-        color="danger"
-        class="flex xs3 float-left"
-        @click="skip()"
-      >{{$t('dashboard.tabs.productCardTab.skip')}}</va-button>
-      <va-button
-        color="success"
-        class="flex xs3 float-right"
-        @click="sendProduct(form)"
-      >{{$t('dashboard.tabs.productCardTab.confirm')}}</va-button>
+      <va-button color="danger" class="flex xs3 float-left" @click="skip()">{{
+        $t('dashboard.tabs.productCardTab.skip')
+      }}</va-button>
+      <va-button color="success" class="flex xs3 float-right" @click="sendProduct(form)">{{
+        $t('dashboard.tabs.productCardTab.confirm')
+      }}</va-button>
     </div>
   </div>
 </template>
@@ -114,6 +108,7 @@ export default {
 
     updateForm(data) {
       this.form = JSON.parse(JSON.stringify(data));
+      this.images = this.form.images[0];
     },
     sendProduct() {
       this.$emit('sendProduct', {

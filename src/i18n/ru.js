@@ -1,4 +1,7 @@
 module.exports = {
+  btn: {
+    getProduct: 'Начать!',
+  },
   dashboard: {
     data: { url: 'ССЫЛКА' },
     info: {
@@ -10,9 +13,6 @@ module.exports = {
       mediumCost: 'Средние',
       highCost: 'Дорогие',
       waitPost: 'Ожидает постинга',
-    },
-    btn: {
-      getProduct: 'Начать!',
     },
     tabs: {
       productCardTab: {
