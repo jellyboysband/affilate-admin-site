@@ -1,6 +1,6 @@
 module.exports = {
   dashboard: {
-    data: { url: "ССЫЛКА" },
+    data: { url: 'ССЫЛКА' },
     info: {
       parsed: 'Найдено',
       moderated: 'Отмодерированно',
@@ -9,6 +9,9 @@ module.exports = {
       lowCost: 'Дешёвые',
       mediumCost: 'Средние',
       highCost: 'Дорогие',
+    },
+    btn: {
+      getProduct: 'Начать!',
     },
     tabs: {
       productCardTab: {
