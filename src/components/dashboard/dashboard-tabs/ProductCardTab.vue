@@ -12,7 +12,7 @@
         />
 
         <va-input
-          class="flex xs6"
+          class="flex md6 xs12"
           type="text"
           autosize
           :label="$t('dashboard.tabs.productCardTab.minCost') +' '+form.min.currency"
@@ -20,7 +20,7 @@
           pattern="\d+(\.\d{2})?"
         />
         <va-input
-          class="flex xs6"
+          class="flex md6 xs12"
           type="text"
           autosize
           :label="$t('dashboard.tabs.productCardTab.maxCost') +' '+form.max.currency"
@@ -31,11 +31,11 @@
       <!-- OPTIONAL -->
       <div class="row">
         <a
-          class="underline h3 flex xs2"
+          class="underline h3 flex xs12 md2"
           :href="form.url"
         >{{$t('dashboard.tabs.productCardTab.link')}}</a>
 
-        <p class="h3 gray mb-3 flex xs2" :href="form.url">
+        <p class="h3 gray mb-3 flex xs12 md2" :href="form.url">
           {{$t('dashboard.tabs.productCardTab.rate')}}:
           <span
             class="underline"
@@ -48,7 +48,7 @@
         <va-card
           v-for="(url,i) of form.images"
           :key="i"
-          class="flex xs2 w-100"
+          class="flex xs12 md2 w-100"
           style="height:15em;"
           :image="url"
           titleOnImage
@@ -68,12 +68,12 @@
     <div class="flex xs12">
       <va-button
         color="danger"
-        class="flex xs3 float-left"
+        class="flex xs5 md3 float-left"
         @click="skip()"
       >{{$t('dashboard.tabs.productCardTab.skip')}}</va-button>
       <va-button
         color="success"
-        class="flex xs3 float-right"
+        class="flex xs5 md3 float-right"
         @click="sendProduct(form)"
       >{{$t('dashboard.tabs.productCardTab.confirm')}}</va-button>
     </div>
@@ -114,6 +114,9 @@ export default {
 
     updateForm(data) {
       this.form = JSON.parse(JSON.stringify(data));
+      if (~~this.form.min.cost === 0) {
+        this.from.min = JSON.parse(JSON.stringify(this.from.max));
+      }
     },
     sendProduct() {
       this.$emit('sendProduct', {

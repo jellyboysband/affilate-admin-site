@@ -1,7 +1,7 @@
 <template>
   <div class="va-page-layout">
     <slot></slot>
-    <div class="content-wrap" id="content-wrap">
+    <div class="content" id="content-wrap">
       <slot name="content"></slot>
     </div>
   </div>

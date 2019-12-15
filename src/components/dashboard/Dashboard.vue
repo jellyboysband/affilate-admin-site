@@ -8,7 +8,7 @@
         @click="()=>{getProduct();visibleCard=true}"
       >{{$t('btn.getProduct')}}</va-button>
     </div>
-    <va-card v-else class="flex xs10 mx-auto gray">
+    <va-card v-else class="flex xs12 md10 mx-auto gray">
       <ProductCardTab ref="tabsRef" @sendProduct="sendProduct" @skipProduct="getProduct()" />
     </va-card>
 
