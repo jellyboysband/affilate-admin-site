@@ -5,13 +5,13 @@
         <div class="flex xs12 sm6">
           <va-card class="mb-4" color="secondary">
             <p class="display-2 mb-0" style="color: white">{{ info.getQ }}</p>
-            <p style="color: white">{{$t('dashboard.info.parsed')}}</p>
+            <p style="color: white">{{ $t('dashboard.info.parsed') }}</p>
           </va-card>
         </div>
         <div class="flex xs12 sm6">
           <va-card class="mb-4" color="info">
-            <p class="display-2 mb-0" style="color: white">{{ info.sendQ }}</p>
-            <p style="color: white">{{$t('dashboard.info.waitPost')}}</p>
+            <p class="display-2 mb-0" style="color: white">{{ info.postQ }}</p>
+            <p style="color: white">{{ $t('dashboard.info.waitPost') }}</p>
           </va-card>
         </div>
       </div>

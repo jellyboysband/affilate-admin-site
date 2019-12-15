@@ -1,6 +1,9 @@
 module.exports = {
+  btn: {
+    getProduct: 'Начать!',
+  },
   dashboard: {
-    data: { url: "ССЫЛКА" },
+    data: { url: 'ССЫЛКА' },
     info: {
       parsed: 'Найдено',
       moderated: 'Отмодерированно',

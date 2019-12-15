@@ -1,6 +1,6 @@
 <template>
   <div class="pt-2 row row-equal" style="overflow: hidden;">
-    <va-card class="row title-dark my gray" :style="{color: $themes.primary}">
+    <va-card class="row title-dark my gray" :style="{ color: $themes.primary }">
       <!-- INPUTS -->
       <div class="row">
         <va-input
@@ -15,7 +15,7 @@
           class="flex md6 xs12"
           type="text"
           autosize
-          :label="$t('dashboard.tabs.productCardTab.minCost') +' '+form.min.currency"
+          :label="$t('dashboard.tabs.productCardTab.minCost') + ' ' + form.min.currency"
           v-model.number="form.min.cost"
           pattern="\d+(\.\d{2})?"
         />
@@ -23,7 +23,7 @@
           class="flex md6 xs12"
           type="text"
           autosize
-          :label="$t('dashboard.tabs.productCardTab.maxCost') +' '+form.max.currency"
+          :label="$t('dashboard.tabs.productCardTab.maxCost') + ' ' + form.max.currency"
           v-model.number="form.max.cost"
           pattern="\d+(\.\d{2})?"
         />
@@ -46,7 +46,7 @@
 
       <div class="row">
         <va-card
-          v-for="(url,i) of form.images"
+          v-for="(url, i) of form.images"
           :key="i"
           class="flex xs12 md2 w-100"
           style="height:15em;"
@@ -55,10 +55,10 @@
         >
           <template slot="header">
             <va-button
-              :color="images ===url?'success':'danger'"
-              @click="images=url"
+              :color="images === url ? 'success' : 'danger'"
+              @click="images = url"
               class="ma-0 mb-3"
-            >{{ images ===url?'✔':'✗' }}</va-button>
+            >{{ images === url ? '✔' : '✗' }}</va-button>
           </template>
         </va-card>
       </div>
@@ -117,6 +117,7 @@ export default {
       if (~~this.form.min.cost === 0) {
         this.from.min = JSON.parse(JSON.stringify(this.from.max));
       }
+      this.images = this.form.images[0];
     },
     sendProduct() {
       this.$emit('sendProduct', {
