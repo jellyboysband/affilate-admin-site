@@ -9,6 +9,7 @@
           :label="$t('dashboard.tabs.productCardTab.description')"
           v-model="form.title"
           class="flex xs12"
+          ref="descriptionInput"
         />
 
         <va-input
@@ -118,6 +119,9 @@ export default {
         this.from.min = JSON.parse(JSON.stringify(this.from.max));
       }
       this.images = this.form.images[0];
+      this.$nextTick(() => {
+        this.$refs.descriptionInput.adjustHeight();
+      });
     },
     sendProduct() {
       this.$emit('sendProduct', {
