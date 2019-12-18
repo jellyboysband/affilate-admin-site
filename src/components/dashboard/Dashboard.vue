@@ -70,7 +70,8 @@ export default {
           this.$refs.tabsRef.updateForm(response);
           this.getInfo();
         })
-        .catch(_ => {
+        .catch(err => {
+        console.log("TCL: getProduct -> err", err)
           this.getInfo();
           this.visibleCard = false;
         });

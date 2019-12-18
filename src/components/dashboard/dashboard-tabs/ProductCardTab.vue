@@ -116,7 +116,7 @@ export default {
     updateForm(data) {
       this.form = JSON.parse(JSON.stringify(data));
       if (~~this.form.min.cost === 0) {
-        this.from.min = JSON.parse(JSON.stringify(this.from.max));
+        this.form.min = JSON.parse(JSON.stringify(this.form.max));
       }
       this.images = this.form.images[0];
       this.$nextTick(() => {
